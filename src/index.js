@@ -12,19 +12,23 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { ThemeProvider } from '@mui/material/styles';
+import { dashboardTheme } from './dashboardTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="authentication" element={<Authentication />} />
-        <Route path="database" element={<Database />} />
-        <Route path="functions" element={<Function />} />
-        <Route path="hosting" element={<Hosting />} />
-        <Route path="machine-learning" element={<MachineLearning />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <ThemeProvider theme={dashboardTheme}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="authentication" element={<Authentication />} />
+          <Route path="database" element={<Database />} />
+          <Route path="functions" element={<Function />} />
+          <Route path="hosting" element={<Hosting />} />
+          <Route path="machine-learning" element={<MachineLearning />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </ThemeProvider>
 );
 
